@@ -52,13 +52,13 @@ class MainApp:
         fahrenheit = self.entry.getText()
         fahrenheit = float(str(fahrenheit))
         celsius = (fahrenheit-32.0) / 1.8
-        self.result.setText('Celsius: %s'%(str(celsius)))
+        self.result.setText('Celsius: %.2f'%(celsius))
 
     def to_fahrenheit(self):
         celsius = self.entry.getText()
         celsius = float(str(celsius))
         fahrenheit = celsius * 1.8 + 32.0
-        self.result.setText('Fahrenheit: %s'%(str(fahrenheit)))
+        self.result.setText('Fahrenheit: %.2f'%(fahrenheit))
 
 def main():
     MainApp()
