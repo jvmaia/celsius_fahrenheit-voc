@@ -17,4 +17,4 @@ Build and run the app:
 
     python setup.py android --start
 
-![Celsius Fahrenheit screenshot] (screenshot.png)
+![Celsius Fahrenheit screenshot](screenshot.png)
