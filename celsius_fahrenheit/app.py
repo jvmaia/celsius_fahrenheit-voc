@@ -49,19 +49,16 @@ class MainApp:
         self._activity.setContentView(vlayout)
 
     def to_celsius(self):
-        print(type(self.entry.getText()))
         fahrenheit = self.entry.getText()
         fahrenheit = float(str(fahrenheit))
-        print(fahrenheit)
         celsius = (fahrenheit-32.0) / 1.8
-        self.result.setText('Celsius: %d'%(celsius))
+        self.result.setText('Celsius: %s'%(str(celsius)))
 
     def to_fahrenheit(self):
         celsius = self.entry.getText()
         celsius = float(str(celsius))
-        print(celsius)
         fahrenheit = celsius * 1.8 + 32.0
-        self.result.setText('Fahrenheit: %d'%(fahrenheit))
+        self.result.setText('Fahrenheit: %s'%(str(fahrenheit)))
 
 def main():
     MainApp()
