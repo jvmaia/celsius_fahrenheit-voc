@@ -20,7 +20,7 @@ class MainApp:
         vlayout.setOrientation(LinearLayout.VERTICAL)
 
         self.entry = EditText(self._activity)
-        self.entry.setInputType(0x00000002)
+        self.entry.setInputType(0x00000002 | 0x00002000 | 0x00001000)
         self.entry.setGravity(Gravity.CENTER)
         vlayout.addView(self.entry)
 
@@ -49,14 +49,20 @@ class MainApp:
         self._activity.setContentView(vlayout)
 
     def to_celsius(self):
-        fahrenheit = self.entry.getText()
-        fahrenheit = float(str(fahrenheit))
+        fahrenheit = str(self.entry.getText())
+        if len(fahrenheit) == 0:
+            self.result.setText('Please enter a valid number!')
+            return
+        fahrenheit = float(fahrenheit)
         celsius = (fahrenheit-32.0) / 1.8
         self.result.setText('Celsius: %.2f'%(celsius))
 
     def to_fahrenheit(self):
-        celsius = self.entry.getText()
-        celsius = float(str(celsius))
+        celsius = str(self.entry.getText())
+        if len(celsius) == 0:
+            self.result.setText('Please enter a valid number!')
+            return
+        celsius = float(celsius)
         fahrenheit = celsius * 1.8 + 32.0
         self.result.setText('Fahrenheit: %.2f'%(fahrenheit))
 
