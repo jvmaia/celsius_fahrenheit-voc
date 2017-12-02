@@ -21,6 +21,8 @@ class MainApp:
 
         self.entry = EditText(self._activity)
         self.entry.setInputType(0x00000002 | 0x00002000 | 0x00001000)
+        # set input class and flags
+        # see https://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType
         self.entry.setGravity(Gravity.CENTER)
         vlayout.addView(self.entry)
 
@@ -49,7 +51,7 @@ class MainApp:
         self._activity.setContentView(vlayout)
 
     def to_celsius(self):
-        fahrenheit = str(self.entry.getText())
+        fahrenheit = str(self.entry.getText()) # capture entry_text and transform it into string
         if len(fahrenheit) == 0:
             self.result.setText('Please enter a valid number!')
             return
@@ -58,7 +60,7 @@ class MainApp:
         self.result.setText('Celsius: %.2f'%(celsius))
 
     def to_fahrenheit(self):
-        celsius = str(self.entry.getText())
+        celsius = str(self.entry.getText()) # capture entry_text and transform it into string
         if len(celsius) == 0:
             self.result.setText('Please enter a valid number!')
             return
